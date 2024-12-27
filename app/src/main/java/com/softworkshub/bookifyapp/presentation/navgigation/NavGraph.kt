@@ -44,7 +44,7 @@ fun NavGraph(
         }
 
         navigation(
-            route = Screen.AppNavigator.route,
+            route = Screen.AppNavigation.route,
             startDestination = Screen.AppNavigator.route
         ){
             composable(route = Screen.AppNavigator.route){

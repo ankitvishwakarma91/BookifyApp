@@ -13,13 +13,13 @@ import com.softworkshub.bookifyapp.ui.theme.BookifyAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
    // private val viewModel by viewModels<MainViewModel>()
 
-    @Inject
-    lateinit var viewModel: MainViewModel
+    private val viewModel : MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

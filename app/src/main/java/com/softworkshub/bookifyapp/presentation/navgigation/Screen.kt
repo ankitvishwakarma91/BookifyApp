@@ -10,6 +10,8 @@ sealed class Screen(
     data object BookingScreen : Screen(route = "booking_screen")
     data object ExploreScreen : Screen(route = "explore_screen")
     data object ProfileScreen : Screen(route = "profile_screen")
+
+    data object AppNavigation :Screen(route = "app_navigation")
     data object AppNavigator : Screen(route = "app_navigator")
     data object AppStartNavigation : Screen(route = "app_start_navigation")
 
