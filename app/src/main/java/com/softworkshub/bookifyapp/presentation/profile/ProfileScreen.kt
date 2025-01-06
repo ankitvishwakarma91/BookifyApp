@@ -32,7 +32,6 @@ fun ProfileScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
             .background(color = colorResource(id = R.color.brownBackground))
     ) {
         Column(

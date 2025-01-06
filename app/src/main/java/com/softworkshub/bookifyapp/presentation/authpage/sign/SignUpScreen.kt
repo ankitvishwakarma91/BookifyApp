@@ -37,6 +37,8 @@ fun SignUpScreen(
     onSignUpSuccess : () -> Unit,
 ) {
 
+    val auth = FirebaseAuth.getInstance()
+
     var email by remember {
         mutableStateOf("")
     }
@@ -98,7 +100,7 @@ fun SignUpScreen(
 
         Button(
             onClick = {
-                val auth = FirebaseAuth.getInstance()
+
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
                         isLoading = false

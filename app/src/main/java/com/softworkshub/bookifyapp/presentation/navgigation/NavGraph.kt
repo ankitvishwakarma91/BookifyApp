@@ -16,10 +16,7 @@ fun NavGraph(
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = startDestination){
-        navigation(
-            route = Screen.AppStartNavigation.route,
-            startDestination = Screen.LoginPage.route
-        ){
+
             composable(route = Screen.LoginPage.route){
                 LoginScreen(
                     navController = navController,
@@ -28,7 +25,8 @@ fun NavGraph(
                             // Remove login screen from backstack after successful login
                             popUpTo(Screen.LoginPage.route) { inclusive = true }
                         }
-                    }
+                    },
+                    onEvent = {}
                 )
             }
             composable(route = Screen.SignUp.route){
@@ -41,15 +39,12 @@ fun NavGraph(
                     }
                 )
             }
-        }
 
-        navigation(
-            route = Screen.AppNavigation.route,
-            startDestination = Screen.AppNavigator.route
-        ){
+
+
             composable(route = Screen.AppNavigator.route){
                 AppNavigator()
             }
-        }
+
     }
 }

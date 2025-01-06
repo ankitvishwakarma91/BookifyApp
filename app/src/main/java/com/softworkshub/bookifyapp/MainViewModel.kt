@@ -18,21 +18,20 @@ class MainViewModel @Inject constructor(
     private val appEntryUseCases: AppEntryUseCases
 ) : ViewModel() {
 
-    var startDestination by mutableStateOf(Screen.AppStartNavigation.route)
+    var startDestination by mutableStateOf(Screen.LoginPage.route)
         private set
 
     init {
         appEntryUseCases.readAppEntry()
             .onEach { shouldStartFromHomeScreen ->
                 startDestination = if (shouldStartFromHomeScreen) {
-                    Screen.AppNavigator.route
+                    Screen.AppNavigator.route // Direct main app start
                 } else {
-                    Screen.AppStartNavigation.route
+                    Screen.LoginPage.route // Start at login
                 }
             }
-            .catch {_ ->
-                // Log and handle exceptions
-                startDestination = Screen.AppStartNavigation.route
+            .catch {
+                startDestination = Screen.LoginPage.route // Fallback to LoginPage
             }
             .launchIn(viewModelScope)
     }

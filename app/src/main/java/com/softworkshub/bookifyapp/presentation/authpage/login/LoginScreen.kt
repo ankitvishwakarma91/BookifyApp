@@ -36,8 +36,10 @@ import com.softworkshub.bookifyapp.util.Dimens
 fun LoginScreen(
     navController :NavController,
     onLoginSuccess:() -> Unit,
+    onEvent :(LoginEvent) -> Unit,
 ) {
 
+    val auth = FirebaseAuth.getInstance()
     var email by remember {
         mutableStateOf("")
     }
@@ -95,7 +97,7 @@ fun LoginScreen(
 
         Button(
             onClick = {
-                      val auth = FirebaseAuth.getInstance()
+
                 auth.signInWithEmailAndPassword(email,password)
                     .addOnCompleteListener { success->
                         if (success.isSuccessful){
@@ -126,8 +128,8 @@ fun LoginScreenPreview(){
 
     val navController = rememberNavController()
 
-    LoginScreen(
-        navController = navController,
-        onLoginSuccess = {}
-    )
+//    LoginScreen(
+//        navController = navController,
+//        onLoginSuccess = {}
+//    )
 }

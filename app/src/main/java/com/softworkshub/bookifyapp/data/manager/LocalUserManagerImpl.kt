@@ -11,26 +11,24 @@ import com.softworkshub.bookifyapp.util.Constants
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
+
+private val Context.dataStore by preferencesDataStore("USER_SETTINGS")
+
 class LocalUserManagerImpl (
     private val context: Context,
 ): LocalUserManager {
 
-    private val readOnlyProperty = preferencesDataStore(name = "USER_SETTINGS")
-    private val Context.dataStore : DataStore<Preferences> by readOnlyProperty
+    private val APP_ENTRY_KEY = booleanPreferencesKey("app_entry")
 
     override suspend fun saveEntry() {
         context.dataStore.edit { settings ->
-            settings[PreferencesKey.APP_ENTRY] = true
+            settings[APP_ENTRY_KEY] = true
         }
     }
-
     override fun readEntry(): Flow<Boolean> {
         return context.dataStore.data.map { preferences ->
-            preferences[PreferencesKey.APP_ENTRY] ?: false
+            preferences[APP_ENTRY_KEY] ?: false
         }
     }
 
-    private object PreferencesKey{
-        val APP_ENTRY = booleanPreferencesKey(Constants.APP_ENTRY)
-    }
 }

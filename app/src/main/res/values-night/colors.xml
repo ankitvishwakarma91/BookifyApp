@@ -11,4 +11,5 @@
     <color name="brownBackground">#9a8b85</color>
     <color name="continueButton">#d8d3d0</color>
     <color name="body">#4E4B66</color>
+    <color name="bottomAppBar">#FFEDE6</color>
 </resources>

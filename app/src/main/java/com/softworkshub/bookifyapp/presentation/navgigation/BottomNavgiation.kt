@@ -35,6 +35,7 @@ fun BottomNavigationView(
     NavigationBar(
         modifier = Modifier.fillMaxWidth(),
         tonalElevation = MediumElevation,
+        containerColor = colorResource(id = R.color.bottomAppBar)
     ) {
         items.forEachIndexed { index, item ->
             NavigationBarItem(
@@ -56,10 +57,10 @@ fun BottomNavigationView(
                     }
                 },
                 colors = NavigationBarItemDefaults.colors(
-                    selectedIconColor = MaterialTheme.colorScheme.primary,
-                    selectedTextColor = MaterialTheme.colorScheme.primary,
-                    unselectedIconColor = colorResource(id = R.color.body),
-                    unselectedTextColor = colorResource(id = R.color.body),
+                    selectedIconColor = colorResource(id = R.color.black),
+                    selectedTextColor = colorResource(id = R.color.black),
+                    unselectedIconColor = colorResource(id = R.color.black),
+                    unselectedTextColor = colorResource(id = R.color.black),
                     indicatorColor = MaterialTheme.colorScheme.background,
                 )
             )
